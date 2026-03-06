@@ -1,0 +1,77 @@
+*,
+html {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+img {
+    width: 50px;    height: 50px;
+}
+body {
+    height: 100vh;
+}
+/* === section ID === */
+#Neroo-page-1 {
+    background-color: lavender;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* === navbar === */
+.navbar-home-base {
+    width: 100%; height: 50px;
+    position: relative;
+    overflow: hidden;
+}
+/* container */
+.navbar-home-container {
+    width: fit-content; height: 100%;
+    position: absolute;
+    left: 80px;
+}
+/* ul */
+.navbar-home-ul {
+    width: 100%; height: 100%;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    padding: 20px;
+}
+/* li */
+.navbar-home-li {
+    position: relative;
+}
+.navbar-home-li a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+.navbar-home-li a::after {
+    content: "";
+    background-color: paleturquoise;
+    position: absolute;
+    bottom: 0; left: 0; top: 20px;    
+    width: 0; height: 3px;
+    border-radius: 10px;
+    transition: 150ms;
+}
+.navbar-home-li a:hover::after {
+    width: 100%;
+}
+.navbar-togle-alternative-base {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: max-content; height: 100%;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+}
+.navbar-togle-alternative-container {
+    background-color: gray;
+    border-radius: 50px;
+}
