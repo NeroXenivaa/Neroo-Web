@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="home">
+
+<div class="left">
+<h1>369</h1>
+<p>
+A personal training practice that pulls no punches
+when it comes to your development
+</p>
+</div>
+
+<div class="panels">
+
+<div class="panel">
+<img src="img1.jpg">
+<div class="text">J1<br>Practice</div>
+</div>
+
+<div class="panel">
+<img src="img2.jpg">
+<div class="text">J2<br>The Team</div>
+</div>
+
+<div class="panel">
+<img src="img3.jpg">
+<div class="text">J3<br>Services</div>
+</div>
+
+<div class="panel">
+<img src="img4.jpg">
+<div class="text">J4<br>The Lab</div>
+</div>
+
+<div class="panel">
+<img src="img5.jpg">
+<div class="text">J5<br>Contact</div>
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial;
+background:#111114;
+color:white;
+overflow:hidden;
+}
+
+.home{
+display:flex;
+height:100vh;
+}
+
+.left{
+width:30%;
+background:#e6e6e6;
+color:#333;
+padding:80px 40px;
+}
+
+.left h1{
+font-size:60px;
+margin-bottom:20px;
+}
+
+.panels{
+display:flex;
+flex:1;
+overflow:hidden;
+}
+
+.panel{
+position:relative;
+flex:1;
+transform:skewX(-15deg);
+overflow:hidden;
+cursor:pointer;
+transition:0.5s;
+}
+
+.panel img{
+width:130%;
+height:100%;
+object-fit:cover;
+transform:skewX(15deg) scale(1.2);
+transition:0.5s;
+}
+
+.panel:hover{
+flex:1.5;
+}
+
+.panel:hover img{
+transform:skewX(15deg) scale(1.3);
+}
+
+.text{
+position:absolute;
+bottom:40px;
+left:40px;
+font-size:20px;
+transform:skewX(15deg);
+}
