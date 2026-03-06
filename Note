@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<section class="home">
+
+<div class="panel">
+<img src="img1.jpg">
+<span>J1<br>Practice</span>
+</div>
+
+<div class="panel">
+<img src="img2.jpg">
+<span>J2<br>The Team</span>
+</div>
+
+<div class="panel">
+<img src="img3.jpg">
+<span>J3<br>Services</span>
+</div>
+
+<div class="panel">
+<img src="img4.jpg">
+<span>J4<br>The Lab</span>
+</div>
+
+<div class="panel">
+<img src="img5.jpg">
+<span>J5<br>Contact</span>
+</div>
+
+</section>
+
+</body>
+</html>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#111114;
+font-family:Arial;
+overflow:hidden;
+}
+
+.home{
+display:flex;
+height:100vh;
+}
+
+.panel{
+position:relative;
+flex:1;
+overflow:hidden;
+transform:skewX(-15deg);
+cursor:pointer;
+}
+
+.panel img{
+width:120%;
+height:100%;
+object-fit:cover;
+transform:skewX(15deg) scale(1.2);
+transition:0.5s;
+}
+
+.panel span{
+position:absolute;
+bottom:40px;
+left:40px;
+color:white;
+font-size:20px;
+transform:skewX(15deg);
+}
+
+.panel:hover img{
+transform:skewX(15deg) scale(1.3);
+}
