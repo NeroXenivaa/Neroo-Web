@@ -1,0 +1,81 @@
+*,
+html {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    list-style: none;
+}
+body {
+    height: 100vh;
+}
+img {
+    width: 120px; height: 120px;
+}
+#Neroo-page-3 {
+    background-color: darkslategrey;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* =======================
+        < PAGE 3 >         */
+/* =======================
+    CONTENT CRAFT 
+========================== */
+/* button */
+.craft-button-base {
+    background-color: azure;
+}
+.craft-button-base button {
+    background-color: #8b8b8b;
+}
+
+/* craft*/
+.content-craft-base {
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.content-craft-base-box {
+    background: #777777;
+    width: max-content; height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content-craft-div-box {
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+.craft-box {
+    background-color: darkcyan;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+.craft-box h1 {
+    position: absolute;
+    bottom: 0;
+    font-size: 30;
+}
+.cube {
+    transition: 0.5s;
+}
+.cube img {
+    width: 120px; height: 120px;
+}
+.cube:hover {
+    transform: scale(1.1);
+}
+.cube.ACC {
+    filter: invert(1);
+    transform: scale(1.3);
+}
