@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Craft · exact template</title>
+    <title>Next.js · by Vercel</title>
     <style>
-        /* reset total */
         * {
             margin: 0;
             padding: 0;
@@ -13,356 +12,364 @@
         }
 
         body {
-            background-color: #2f4f4f;  /* darkslategrey solid seperti template */
-            height: 100vh;
+            background: #000; /* hitam pekat */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            font-family: 'Arial', 'Helvetica', sans-serif;
+            justify-content: center;
+            color: #fff;
         }
 
-        /* container utama – 100% mirip gambar */
-        .craft-container {
+        .container {
+            max-width: 1300px;
             width: 100%;
-            max-width: 1100px;
-            padding: 20px;
+            padding: 0 40px;
+            margin: 0 auto;
+        }
+
+        /* ===== HEADER / NAVBAR ===== */
+        .navbar {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
+            padding: 24px 0 40px 0;
+            border-bottom: 1px solid #222;
         }
 
-        /* ===== BUTTON CRAFT ===== */
-        .btn-wrapper {
-            margin-bottom: 50px;
-            border-radius: 40px;
-            background: #d3d3d3;    /* abu-abu terang seperti template */
-            padding: 6px 6px 10px 6px;
-            box-shadow: 0 4px 0 #8f8f8f;
-        }
-
-        .craft-btn {
-            background: #a8a8a8;     /* abu-abu gelap */
-            border: none;
-            font-size: 48px;
-            font-weight: bold;
-            padding: 15px 90px;
-            border-radius: 40px;
-            color: #2f4f4f;          /* teks darkslategrey */
-            cursor: pointer;
-            letter-spacing: 12px;
-            text-transform: uppercase;
-            border: 3px solid #c0c0c0;
-            box-shadow: inset 0 -6px 0 #6b6b6b, 0 10px 15px rgba(0,0,0,0.3);
-            transition: 0.1s ease;
-            font-family: 'Arial Black', sans-serif;
-        }
-
-        /* efek glow sederhana tapi elegan (sesuai permintaan: glow + border mengikuti cursor) */
-        .btn-wrapper {
-            position: relative;
-        }
-
-        .btn-wrapper::before {
-            content: '';
-            position: absolute;
-            top: -8px; left: -8px; right: -8px; bottom: -8px;
-            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,200,0.9), rgba(180,180,180,0.4), transparent 70%);
-            border-radius: 60px;
-            opacity: 0;
-            transition: opacity 0.2s;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .btn-wrapper:hover::before {
-            opacity: 1;
-        }
-
-        .craft-btn:hover {
-            background: #b8b8b8;
-            transform: scale(1.01);
-            border-color: #e0e0e0;
-        }
-
-        .craft-btn:active {
-            transform: translateY(3px);
-            box-shadow: inset 0 -3px 0 #6b6b6b;
-        }
-
-        /* ===== BASE BOX (abu-abu terang) ===== */
-        .craft-base {
-            background-color: #b0b0b0;    /* abu-abu seperti template */
-            padding: 40px 50px;
-            border-radius: 30px;
+        .logo-area {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 50px;
-            box-shadow: 0 15px 0 #6b6b6b, inset 0 0 0 2px #d8d8d8;
-            border: 3px solid #8a8a8a;
-            position: relative;
+            gap: 20px;
         }
 
-        /* kolom kiri & kanan (dua item vertikal) */
-        .col {
+        .vercel-logo {
             display: flex;
-            flex-direction: column;
-            gap: 80px;
-        }
-
-        /* tiap item: cube + tulisan */
-        .item {
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            position: relative;
+            gap: 8px;
         }
 
-        .item h3 {
-            font-size: 28px;
-            color: white;
-            text-shadow: 3px 3px 0 #4a4a4a;
-            background: transparent;
-            margin-top: 12px;
-            letter-spacing: 2px;
+        .vercel-logo svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: #fff;
+        }
+
+        .vercel-logo span {
+            font-size: 15px;
+            color: #888;
+            letter-spacing: -0.01em;
+        }
+
+        .vercel-logo .by {
+            color: #555;
+            margin-right: 4px;
+        }
+
+        .vercel-logo .vercel {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: #888;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main {
+            padding: 60px 0 100px 0;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
             font-weight: 600;
-            font-family: 'Arial', sans-serif;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 20px;
         }
 
-        /* ===== CUBE ===== */
-        .cube {
-            width: 130px;
-            height: 130px;
-            background-color: #5f9ea0;   /* cadetblue dasar, nanti ditimpa gambar */
+        .hero h1 .get-started {
+            color: #fff;
+        }
+
+        .hero h1 .code {
+            background: #1a1a1a;
+            padding: 0 12px;
+            border-radius: 60px;
+            font-family: 'SF Mono', 'Menlo', monospace;
+            font-size: 3.8rem;
+            font-weight: 500;
+            color: #fff;
+            border: 1px solid #333;
+            display: inline-block;
+            margin-left: 8px;
+        }
+
+        .hero .by-vercel {
+            font-size: 1.2rem;
+            color: #666;
+            margin-top: 10px;
+            border-top: 1px solid #222;
+            padding-top: 25px;
+            max-width: 400px;
+        }
+
+        /* ===== NEXT.JS BIG LOGO ===== */
+        .next-logo {
+            margin: 50px 0 60px 0;
+        }
+
+        .next-logo svg {
+            width: 200px;
+            height: auto;
+            filter: invert(1);
+        }
+
+        /* fallback text if svg not supported */
+        .next-logo .next-text {
+            font-size: 6rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -2px;
+        }
+
+        /* ===== CARD GRID (Docs, Learn, Templates, Deploy) ===== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 60px 0 70px 0;
+        }
+
+        .card {
+            background: #0a0a0a;
+            border: 1px solid #222;
+            border-radius: 16px;
+            padding: 28px 24px;
+            transition: background 0.2s, border-color 0.2s;
+            cursor: default;
+        }
+
+        .card:hover {
+            background: #111;
+            border-color: #444;
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .card p {
+            color: #888;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        .card .arrow {
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 300;
+            opacity: 0.6;
+        }
+
+        /* ===== DESKRIPSI PANJANG (Find in-depth information ...) ===== */
+        .description-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px 60px;
+            margin-top: 60px;
+            border-top: 1px solid #222;
+            padding-top: 50px;
+        }
+
+        .desc-item {
+            color: #aaa;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 450px;
+        }
+
+        .desc-item strong, .desc-item b {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        /* ===== FOOTER / BY VERCEL ===== */
+        .footer-note {
+            margin-top: 80px;
+            padding: 30px 0;
+            border-top: 1px solid #222;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            box-shadow: 8px 8px 0 #3b5e5e;
-            border: 4px solid #c0c0c0;
-            /* biar kotak, gambar akan menutupi */
+            color: #555;
+            font-size: 0.95rem;
         }
 
-        /* gambar kubus (saya buat dengan CSS agar 100% mirip icon template) */
-        .cube .cube-icon {
-            width: 100%;
-            height: 100%;
-            background-color: #4f7a7a;
+        .footer-links {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 70px;
-            color: #d3d3d3;
-            text-shadow: 2px 2px 0 #2b4b4b;
+            gap: 30px;
         }
 
-        /* menggunakan karakter kubus (□) agar tampak seperti ikon */
-        .cube .cube-icon::after {
-            content: "□";
-            font-weight: 400;
-            font-family: 'Arial', sans-serif;
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
         }
 
-        /* gaya saat di-klik (invert) — aktif */
-        .cube.active {
-            filter: invert(1) brightness(1.3);
-            background-color: black; /* jadi putih karena invert */
-            border-color: white;
-            box-shadow: 8px 8px 0 #555;
+        .footer-links a:hover {
+            color: #fff;
         }
 
-        .cube.active .cube-icon {
-            background-color: #333;
-            color: white;
-            text-shadow: none;
+        /* ===== UTILITY ===== */
+        .text-gray {
+            color: #666;
         }
 
-        /* efek hover */
-        .cube:hover {
-            transform: scale(1.07);
-            box-shadow: 10px 10px 0 #2f4f4f;
+        /* RESPONSIVE */
+        @media (max-width: 1000px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            .hero h1 .code {
+                font-size: 3rem;
+            }
         }
 
-        /* center cube sudah aktif dari awal (seperti template) */
-        .cube.center-active {
-            filter: invert(1) brightness(1.3);
-            border-color: white;
-        }
-
-        /* garis bawah (line) seperti template */
-        .base-line {
-            position: absolute;
-            bottom: 18px;
-            left: 10%;
-            width: 80%;
-            height: 5px;
-            background-color: #6b6b6b;
-            border-radius: 4px;
-            box-shadow: 0 2px 0 #c0c0c0;
-        }
-
-        /* ===== tambahan kecil agar super mirip ===== */
-        .item.center-item {
-            margin: 0 10px;
-        }
-
-        /* ukuran responsive */
-        @media (max-width: 800px) {
-            .craft-base { gap: 20px; padding: 30px; }
-            .cube { width: 100px; height: 100px; }
-            .item h3 { font-size: 20px; }
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                align-items: start;
+                gap: 20px;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .description-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="craft-container">
-        <!-- button craft -->
-        <div class="btn-wrapper" id="btnGlow">
-            <button class="craft-btn" id="craftButton">CRAFT</button>
-        </div>
-
-        <!-- base box utama (abu-abu) -->
-        <div class="craft-base" id="mainBase">
-            <!-- kolom kiri: quantum & people -->
-            <div class="col">
-                <div class="item" data-name="quantum">
-                    <div class="cube" onclick="toggleActive(this)">
-                        <div class="cube-icon"></div>
-                    </div>
-                    <h3>Quantum</h3>
+    <div class="container">
+        <!-- navbar -->
+        <nav class="navbar">
+            <div class="logo-area">
+                <div class="vercel-logo">
+                    <!-- simple Vercel triangle logo -->
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 20H22L12 2Z" fill="white" />
+                    </svg>
+                    <span>
+                        <span class="by">by</span> <span class="vercel">Vercel</span>
+                    </span>
                 </div>
-                <div class="item" data-name="people">
-                    <div class="cube" onclick="toggleActive(this)">
-                        <div class="cube-icon"></div>
-                    </div>
-                    <h3>People</h3>
+            </div>
+            <div class="nav-links">
+                <a href="#">Docs</a>
+                <a href="#">Learn</a>
+                <a href="#">Templates</a>
+                <a href="#">Deploy</a>
+            </div>
+        </nav>
+
+        <!-- main hero -->
+        <main class="main">
+            <div class="hero">
+                <h1>
+                    <span class="get-started">Get started by editing</span>
+                    <span class="code">app/page.tsx</span>
+                </h1>
+                <div class="by-vercel">
+                    by Vercel
                 </div>
             </div>
 
-            <!-- tengah: center (dengan class active) -->
-            <div class="item center-item" data-name="center">
-                <div class="cube center-active" onclick="toggleActive(this)" id="centerCube">
-                    <div class="cube-icon"></div>
-                </div>
-                <h3>Center</h3>
+            <!-- NEXT.js big text (like logo) -->
+            <div class="next-logo">
+                <div class="next-text">NEXT.js</div>
+                <!-- fallback, jika ingin pakai SVG asli next, bisa pakai yang di bawah tapi cukup dengan teks lebih mirip gambar -->
             </div>
 
-            <!-- kolom kanan: xilonen & mini -->
-            <div class="col">
-                <div class="item" data-name="xilonen">
-                    <div class="cube" onclick="toggleActive(this)">
-                        <div class="cube-icon"></div>
-                    </div>
-                    <h3>Xilonen</h3>
+            <!-- 4 cards: Docs, Learn, Templates, Deploy -->
+            <div class="grid">
+                <div class="card">
+                    <h3>Docs →</h3>
+                    <p>Find in-depth information about Next.js features and API.</p>
+                    <span class="arrow">→</span>
                 </div>
-                <div class="item" data-name="mini">
-                    <div class="cube" onclick="toggleActive(this)">
-                        <div class="cube-icon"></div>
-                    </div>
-                    <h3>Mini</h3>
+                <div class="card">
+                    <h3>Learn →</h3>
+                    <p>Learn about Next.js in an interactive course with quizzes!</p>
+                    <span class="arrow">→</span>
+                </div>
+                <div class="card">
+                    <h3>Templates →</h3>
+                    <p>Explore the Next.js 13 playground.</p>
+                    <span class="arrow">→</span>
+                </div>
+                <div class="card">
+                    <h3>Deploy →</h3>
+                    <p>Instantly deploy your Next.js site to a shareable URL with Vercel.</p>
+                    <span class="arrow">→</span>
                 </div>
             </div>
 
-            <!-- line (garis dekoratif) -->
-            <div class="base-line"></div>
-        </div>
+            <!-- deskripsi panjang (4 baris) -->
+            <div class="description-grid">
+                <div class="desc-item">
+                    <strong>Find in-depth information about Next.js features and API.</strong>
+                </div>
+                <div class="desc-item">
+                    <strong>Learn about Next.js in an interactive course with quizzes!</strong>
+                </div>
+                <div class="desc-item">
+                    <strong>Explore the Next.js 13 playground.</strong>
+                </div>
+                <div class="desc-item">
+                    <strong>Instantly deploy your Next.js site to a shareable URL with Vercel.</strong>
+                </div>
+            </div>
+
+            <!-- footer -->
+            <div class="footer-note">
+                <div class="copyright">
+                    © 2026 Vercel, Inc. (clone for template)
+                </div>
+                <div class="footer-links">
+                    <a href="#">Docs</a>
+                    <a href="#">Learn</a>
+                    <a href="#">Templates</a>
+                    <a href="#">Deploy</a>
+                </div>
+            </div>
+        </main>
     </div>
 
-    <script>
-        (function() {
-            // 1. Efek glow border pada button mengikuti cursor
-            const btnWrap = document.getElementById('btnGlow');
-            btnWrap.addEventListener('mousemove', function(e) {
-                const rect = this.getBoundingClientRect();
-                const x = ((e.clientX - rect.left) / rect.width) * 100;
-                const y = ((e.clientY - rect.top) / rect.height) * 100;
-                this.style.setProperty('--x', x + '%');
-                this.style.setProperty('--y', y + '%');
-            });
-            btnWrap.addEventListener('mouseleave', function() {
-                this.style.setProperty('--x', '50%');
-                this.style.setProperty('--y', '50%');
-            });
-
-            // 2. Fungsi toggle invert / active (global)
-            window.toggleActive = function(cubeElement) {
-                cubeElement.classList.toggle('active');
-                // pastikan center cube juga bisa toggle meskipun awal active
-            };
-
-            // 3. Setiap cube diberi data-name berdasarkan parent item
-            const items = document.querySelectorAll('.item');
-            items.forEach(item => {
-                const cube = item.querySelector('.cube');
-                if (cube && item.dataset.name) {
-                    cube.dataset.name = item.dataset.name;
-                }
-            });
-
-            // 4. Tombol CRAFT: baca pola cube yang aktif, ubah background
-            const craftBtn = document.getElementById('craftButton');
-            const page = document.body; // body dengan background darkslategrey
-
-            craftBtn.addEventListener('click', function() {
-                // kumpulkan nama dari cube yang punya class 'active'
-                const activeCubes = [];
-                document.querySelectorAll('.cube.active').forEach(cube => {
-                    let name = cube.dataset.name;
-                    if (!name) {
-                        // fallback dari parent
-                        const parent = cube.closest('.item');
-                        name = parent ? parent.dataset.name : 'unknown';
-                    }
-                    activeCubes.push(name);
-                });
-
-                console.log('pola aktif:', activeCubes);
-
-                // pola untuk background (tetap dalam warna darkslategrey, hanya sedikit variasi)
-                // namun karena template menginginkan 100% mirip, background hanya berubah jika kombinasi spesifik
-                // default: darkslategrey solid
-                let bgColor = '#2f4f4f';  // darkslategrey
-
-                // pola contoh: jika quantum + people, jadi putih & merah (seperti deskripsi)
-                const pattern = activeCubes.sort().join(',');
-
-                if (pattern === 'people,quantum') {
-                    bgColor = '#8b3a3a';  // merah gelap (tetap dalam tone gelap)
-                } else if (pattern === 'center') {
-                    bgColor = '#3b5e5e';  // sedikit lebih terang
-                } else if (pattern === 'mini,xilonen') {
-                    bgColor = '#4f5f3a';  // olive gelap
-                } else if (pattern === 'people,quantum,center') {
-                    bgColor = '#6f4f4f';  // merah kecoklatan
-                } else if (activeCubes.length >= 4) {
-                    bgColor = '#3a5f5f';  // teal gelap
-                }
-
-                // ubah background body (hanya warna solid, tanpa gradien, agar 100% seperti template)
-                page.style.backgroundColor = bgColor;
-                page.style.transition = 'background-color 0.3s';
-
-                // efek klik di button
-                craftBtn.style.transform = 'scale(0.95)';
-                setTimeout(() => craftBtn.style.transform = '', 120);
-
-                // sedikit interaksi: garis line berubah warna tipis
-                const line = document.querySelector('.base-line');
-                line.style.backgroundColor = '#c0c0c0';
-                setTimeout(() => line.style.backgroundColor = '#6b6b6b', 200);
-            });
-
-            // Center cube sudah active dari awal, pastikan class 'active' juga ada agar terbaca
-            const center = document.getElementById('centerCube');
-            if (center) {
-                center.classList.add('active'); // memastikan class active (karena sudah ada center-active)
-                // synchronize data-name
-                center.dataset.name = 'center';
-            }
-
-            // Tambahkan class active ke semua cube yang punya center-active (hanya center)
-        })();
-    </script>
+    <!-- sedikit sentuhan agar link terlihat seperti asli (tidak ada fungsi) -->
 </body>
 </html>
