@@ -3,362 +3,365 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Craft · handmade</title>
+    <title>Craft · exact template</title>
     <style>
+        /* reset total */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Georgia', 'Times New Roman', serif;
         }
 
         body {
-            min-height: 100vh;
-            background: #e8dccc; /* warna dasar kertas tua */
-            background-image: 
-                radial-gradient(circle at 30% 40%, rgba(160, 130, 80, 0.08) 0%, transparent 30%),
-                radial-gradient(circle at 80% 70%, rgba(110, 70, 30, 0.06) 0%, transparent 40%),
-                repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 2px, transparent 2px, transparent 12px);
+            background-color: #2f4f4f;  /* darkslategrey solid seperti template */
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            font-family: 'Arial', 'Helvetica', sans-serif;
         }
 
-        /* halaman utama */
-        .craft-page {
+        /* container utama – 100% mirip gambar */
+        .craft-container {
             width: 100%;
-            max-width: 1200px;
-            background: rgba(245, 235, 215, 0.7);
-            backdrop-filter: blur(2px);
-            border-radius: 80px 80px 40px 40px;
-            box-shadow: 0 20px 40px rgba(100, 70, 40, 0.3), inset 0 0 0 1px rgba(255, 255, 240, 0.7);
-            padding: 40px 20px 60px 20px;
+            max-width: 1100px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* ===== BUTTON CRAFT dengan efek glow hangat ===== */
-        .button-wrap {
-            position: relative;
+        /* ===== BUTTON CRAFT ===== */
+        .btn-wrapper {
             margin-bottom: 50px;
-            border-radius: 100px;
-            background: #d6c8b2;
-            padding: 5px;
-            box-shadow: 0 5px 0 #9b8e78;
+            border-radius: 40px;
+            background: #d3d3d3;    /* abu-abu terang seperti template */
+            padding: 6px 6px 10px 6px;
+            box-shadow: 0 4px 0 #8f8f8f;
         }
 
         .craft-btn {
-            background: #bcae8b;
+            background: #a8a8a8;     /* abu-abu gelap */
             border: none;
-            font-size: 2.5rem;
+            font-size: 48px;
             font-weight: bold;
-            letter-spacing: 10px;
-            padding: 20px 80px;
-            border-radius: 100px;
-            color: #3f3a2e;
+            padding: 15px 90px;
+            border-radius: 40px;
+            color: #2f4f4f;          /* teks darkslategrey */
             cursor: pointer;
-            position: relative;
-            z-index: 2;
-            transition: all 0.2s ease;
-            box-shadow: inset 0 -4px 0 #7f6e4f, 0 8px 15px rgba(80, 50, 20, 0.2);
+            letter-spacing: 12px;
             text-transform: uppercase;
-            font-family: 'Courier New', monospace;
-            border: 2px solid #eadbc1;
+            border: 3px solid #c0c0c0;
+            box-shadow: inset 0 -6px 0 #6b6b6b, 0 10px 15px rgba(0,0,0,0.3);
+            transition: 0.1s ease;
+            font-family: 'Arial Black', sans-serif;
         }
 
-        .button-wrap::before {
+        /* efek glow sederhana tapi elegan (sesuai permintaan: glow + border mengikuti cursor) */
+        .btn-wrapper {
+            position: relative;
+        }
+
+        .btn-wrapper::before {
             content: '';
             position: absolute;
             top: -8px; left: -8px; right: -8px; bottom: -8px;
-            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), #f5e7c8, #c8b088, transparent 80%);
-            border-radius: 120px;
-            z-index: 1;
+            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,200,0.9), rgba(180,180,180,0.4), transparent 70%);
+            border-radius: 60px;
             opacity: 0;
-            transition: opacity 0.3s;
-            mix-blend-mode: soft-light;
+            transition: opacity 0.2s;
             pointer-events: none;
+            z-index: 1;
         }
 
-        .button-wrap:hover::before {
-            opacity: 0.9;
+        .btn-wrapper:hover::before {
+            opacity: 1;
         }
 
         .craft-btn:hover {
-            background: #d6c29b;
-            transform: translateY(-2px);
-            box-shadow: inset 0 -4px 0 #9b8a64, 0 12px 20px rgba(120, 70, 20, 0.3);
-            color: #2d281c;
+            background: #b8b8b8;
+            transform: scale(1.01);
+            border-color: #e0e0e0;
         }
 
         .craft-btn:active {
             transform: translateY(3px);
-            box-shadow: inset 0 2px 0 #7f6e4f;
+            box-shadow: inset 0 -3px 0 #6b6b6b;
         }
 
-        /* ===== LAYOUT UTAMA (seperti template) ===== */
-        .craft-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            background: #e3d5bd;
+        /* ===== BASE BOX (abu-abu terang) ===== */
+        .craft-base {
+            background-color: #b0b0b0;    /* abu-abu seperti template */
             padding: 40px 50px;
-            border-radius: 70px;
-            box-shadow: inset 0 0 0 3px #f2e5ce, 0 15px 20px rgba(80, 60, 30, 0.25);
-            border: 2px solid #cbb292;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            box-shadow: 0 15px 0 #6b6b6b, inset 0 0 0 2px #d8d8d8;
+            border: 3px solid #8a8a8a;
             position: relative;
         }
 
+        /* kolom kiri & kanan (dua item vertikal) */
         .col {
             display: flex;
             flex-direction: column;
-            gap: 70px;
+            gap: 80px;
         }
 
-        /* setiap item kubus */
-        .craft-item {
+        /* tiap item: cube + tulisan */
+        .item {
             display: flex;
             flex-direction: column;
             align-items: center;
             position: relative;
         }
 
+        .item h3 {
+            font-size: 28px;
+            color: white;
+            text-shadow: 3px 3px 0 #4a4a4a;
+            background: transparent;
+            margin-top: 12px;
+            letter-spacing: 2px;
+            font-weight: 600;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* ===== CUBE ===== */
         .cube {
-            width: 140px;
-            height: 140px;
-            background: #f1e2cc;
-            border: 6px solid #b49a78;
-            box-shadow: 8px 8px 0 #7f623d, inset 0 0 0 4px #ead6b5;
-            transform: rotate(2deg);
-            transition: all 0.25s ease;
-            cursor: pointer;
+            width: 130px;
+            height: 130px;
+            background-color: #5f9ea0;   /* cadetblue dasar, nanti ditimpa gambar */
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 15px 25px 15px 25px; /* sudut tidak beraturan, kesan handmade */
+            transition: all 0.2s ease;
+            cursor: pointer;
+            box-shadow: 8px 8px 0 #3b5e5e;
+            border: 4px solid #c0c0c0;
+            /* biar kotak, gambar akan menutupi */
         }
 
-        /* variasi rotasi tiap cube agar lebih organik */
-        .col:first-child .cube {
-            transform: rotate(-1deg);
-        }
-        .col:last-child .cube {
-            transform: rotate(3deg);
-        }
-        .craft-item.center .cube {
-            transform: rotate(0deg);
-        }
-
-        .cube::after {
-            content: "⬚";
-            font-size: 80px;
-            color: #9c835d;
-            opacity: 0.6;
-            font-weight: normal;
-            transform: scaleX(-1);
+        /* gambar kubus (saya buat dengan CSS agar 100% mirip icon template) */
+        .cube .cube-icon {
+            width: 100%;
+            height: 100%;
+            background-color: #4f7a7a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            color: #d3d3d3;
+            text-shadow: 2px 2px 0 #2b4b4b;
         }
 
-        /* saat aktif (invert) — kita buat gaya "terpilih" dengan warna putih/krem terang */
-        .cube.active {
-            background: #fff8e7;
-            border-color: #e6cda5;
-            box-shadow: 8px 8px 0 #c9a66b, inset 0 0 0 4px #fef7e6;
-            filter: drop-shadow(0 0 12px #f0cf9c);
-        }
-
-        .cube.active::after {
-            color: #ad8f62;
-            opacity: 1;
-        }
-
-        .cube:hover {
-            transform: scale(1.05) rotate(0deg);
-            box-shadow: 10px 10px 0 #9e7e55, inset 0 0 0 4px #ffeac6;
-        }
-
-        /* teks di bawah cube */
-        .craft-item h2 {
-            margin-top: 15px;
-            font-size: 26px;
+        /* menggunakan karakter kubus (□) agar tampak seperti ikon */
+        .cube .cube-icon::after {
+            content: "□";
             font-weight: 400;
-            letter-spacing: 4px;
-            color: #4d3b26;
-            background: #dacbb0;
-            padding: 4px 20px;
-            border-radius: 40px;
-            border: 1px solid #b29975;
-            box-shadow: inset 0 1px 4px #fff3dd, 0 4px 0 #8d7453;
-            font-family: 'Courier New', monospace;
-            text-transform: uppercase;
-            font-size: 22px;
+            font-family: 'Arial', sans-serif;
         }
 
-        /* garis dekoratif (seperti di template) */
-        .grid-line {
+        /* gaya saat di-klik (invert) — aktif */
+        .cube.active {
+            filter: invert(1) brightness(1.3);
+            background-color: black; /* jadi putih karena invert */
+            border-color: white;
+            box-shadow: 8px 8px 0 #555;
+        }
+
+        .cube.active .cube-icon {
+            background-color: #333;
+            color: white;
+            text-shadow: none;
+        }
+
+        /* efek hover */
+        .cube:hover {
+            transform: scale(1.07);
+            box-shadow: 10px 10px 0 #2f4f4f;
+        }
+
+        /* center cube sudah aktif dari awal (seperti template) */
+        .cube.center-active {
+            filter: invert(1) brightness(1.3);
+            border-color: white;
+        }
+
+        /* garis bawah (line) seperti template */
+        .base-line {
             position: absolute;
-            bottom: 20px;
+            bottom: 18px;
             left: 10%;
             width: 80%;
-            height: 6px;
-            background: #cbb190;
-            border-radius: 10px;
-            box-shadow: 0 2px 0 #f0dec6, inset 0 2px 4px #8b6f4a;
+            height: 5px;
+            background-color: #6b6b6b;
+            border-radius: 4px;
+            box-shadow: 0 2px 0 #c0c0c0;
         }
 
-        /* sentuhan ekstra: cap kertas */
-        .craft-page::after {
-            content: "✻  craft  ✻";
-            position: absolute;
-            bottom: 10px;
-            right: 40px;
-            font-size: 18px;
-            color: #aa987c;
-            opacity: 0.3;
-            font-family: 'Courier New';
+        /* ===== tambahan kecil agar super mirip ===== */
+        .item.center-item {
+            margin: 0 10px;
         }
 
-        /* responsif */
+        /* ukuran responsive */
         @media (max-width: 800px) {
-            .craft-grid { gap: 20px; padding: 30px; }
-            .cube { width: 110px; height: 110px; }
-            .cube::after { font-size: 60px; }
+            .craft-base { gap: 20px; padding: 30px; }
+            .cube { width: 100px; height: 100px; }
+            .item h3 { font-size: 20px; }
         }
     </style>
 </head>
 <body>
-    <div class="craft-page" id="craftPage">
-        <!-- button craft dengan efek glow -->
-        <div class="button-wrap" id="glowWrap">
-            <button class="craft-btn" id="actionBtn">Craft</button>
+    <div class="craft-container">
+        <!-- button craft -->
+        <div class="btn-wrapper" id="btnGlow">
+            <button class="craft-btn" id="craftButton">CRAFT</button>
         </div>
 
-        <!-- grid utama persis seperti template: kiri, tengah, kanan -->
-        <div class="craft-grid" id="mainGrid">
-            <!-- kolom kiri (Quantum & People) -->
+        <!-- base box utama (abu-abu) -->
+        <div class="craft-base" id="mainBase">
+            <!-- kolom kiri: quantum & people -->
             <div class="col">
-                <div class="craft-item" data-name="quantum">
-                    <div class="cube" onclick="toggleCube(this)"></div>
-                    <h2>Quantum</h2>
+                <div class="item" data-name="quantum">
+                    <div class="cube" onclick="toggleActive(this)">
+                        <div class="cube-icon"></div>
+                    </div>
+                    <h3>Quantum</h3>
                 </div>
-                <div class="craft-item" data-name="people">
-                    <div class="cube" onclick="toggleCube(this)"></div>
-                    <h2>People</h2>
+                <div class="item" data-name="people">
+                    <div class="cube" onclick="toggleActive(this)">
+                        <div class="cube-icon"></div>
+                    </div>
+                    <h3>People</h3>
                 </div>
             </div>
 
-            <!-- kolom tengah (Center) -->
-            <div class="craft-item center" data-name="center">
-                <div class="cube active" onclick="toggleCube(this)" id="centerCube"></div>
-                <h2>Center</h2>
+            <!-- tengah: center (dengan class active) -->
+            <div class="item center-item" data-name="center">
+                <div class="cube center-active" onclick="toggleActive(this)" id="centerCube">
+                    <div class="cube-icon"></div>
+                </div>
+                <h3>Center</h3>
             </div>
 
-            <!-- kolom kanan (Xilonen & Mini) -->
+            <!-- kolom kanan: xilonen & mini -->
             <div class="col">
-                <div class="craft-item" data-name="xilonen">
-                    <div class="cube" onclick="toggleCube(this)"></div>
-                    <h2>Xilonen</h2>
+                <div class="item" data-name="xilonen">
+                    <div class="cube" onclick="toggleActive(this)">
+                        <div class="cube-icon"></div>
+                    </div>
+                    <h3>Xilonen</h3>
                 </div>
-                <div class="craft-item" data-name="mini">
-                    <div class="cube" onclick="toggleCube(this)"></div>
-                    <h2>Mini</h2>
+                <div class="item" data-name="mini">
+                    <div class="cube" onclick="toggleActive(this)">
+                        <div class="cube-icon"></div>
+                    </div>
+                    <h3>Mini</h3>
                 </div>
             </div>
 
-            <!-- garis bawah (line) -->
-            <div class="grid-line"></div>
+            <!-- line (garis dekoratif) -->
+            <div class="base-line"></div>
         </div>
     </div>
 
     <script>
         (function() {
-            // 1. Efek border / glow mengikuti cursor pada button
-            const wrap = document.getElementById('glowWrap');
-            wrap.addEventListener('mousemove', function(e) {
+            // 1. Efek glow border pada button mengikuti cursor
+            const btnWrap = document.getElementById('btnGlow');
+            btnWrap.addEventListener('mousemove', function(e) {
                 const rect = this.getBoundingClientRect();
                 const x = ((e.clientX - rect.left) / rect.width) * 100;
                 const y = ((e.clientY - rect.top) / rect.height) * 100;
                 this.style.setProperty('--x', x + '%');
                 this.style.setProperty('--y', y + '%');
             });
-            wrap.addEventListener('mouseleave', function() {
+            btnWrap.addEventListener('mouseleave', function() {
                 this.style.setProperty('--x', '50%');
                 this.style.setProperty('--y', '50%');
             });
 
-            // 2. Fungsi toggle class active (menggantikan invert)
-            window.toggleCube = function(cubeElement) {
+            // 2. Fungsi toggle invert / active (global)
+            window.toggleActive = function(cubeElement) {
                 cubeElement.classList.toggle('active');
+                // pastikan center cube juga bisa toggle meskipun awal active
             };
 
-            // 3. Ambil semua elemen craft-item dan kubus
-            const items = document.querySelectorAll('.craft-item');
-            const cubes = document.querySelectorAll('.cube');
-            const craftBtn = document.getElementById('actionBtn');
-            const page = document.getElementById('craftPage');
-
-            // Pastikan setiap item memiliki data-name (sudah ada di HTML)
-            // Tapi kita tambahkan data-name ke cube juga untuk memudahkan
-            cubes.forEach((cube, index) => {
-                // cari parent .craft-item
-                const parent = cube.closest('.craft-item');
-                if (parent && parent.dataset.name) {
-                    cube.dataset.name = parent.dataset.name;
+            // 3. Setiap cube diberi data-name berdasarkan parent item
+            const items = document.querySelectorAll('.item');
+            items.forEach(item => {
+                const cube = item.querySelector('.cube');
+                if (cube && item.dataset.name) {
+                    cube.dataset.name = item.dataset.name;
                 }
             });
 
-            // 4. Event craft button: baca pola cube active, ubah background dengan warna-warna hangat
+            // 4. Tombol CRAFT: baca pola cube yang aktif, ubah background
+            const craftBtn = document.getElementById('craftButton');
+            const page = document.body; // body dengan background darkslategrey
+
             craftBtn.addEventListener('click', function() {
-                // kumpulkan nama dari cube yang memiliki class 'active'
-                const activeNames = [];
+                // kumpulkan nama dari cube yang punya class 'active'
+                const activeCubes = [];
                 document.querySelectorAll('.cube.active').forEach(cube => {
-                    // ambil dari parent data-name atau dari cube dataset
                     let name = cube.dataset.name;
                     if (!name) {
-                        const parent = cube.closest('.craft-item');
+                        // fallback dari parent
+                        const parent = cube.closest('.item');
                         name = parent ? parent.dataset.name : 'unknown';
                     }
-                    activeNames.push(name);
+                    activeCubes.push(name);
                 });
 
-                console.log('active cubes:', activeNames);
+                console.log('pola aktif:', activeCubes);
 
-                // Urutkan untuk pola
-                const pattern = activeNames.sort().join(',');
+                // pola untuk background (tetap dalam warna darkslategrey, hanya sedikit variasi)
+                // namun karena template menginginkan 100% mirip, background hanya berubah jika kombinasi spesifik
+                // default: darkslategrey solid
+                let bgColor = '#2f4f4f';  // darkslategrey
 
-                // pilih background berdasarkan pola (warna-warna earthy/craft)
-                let bgStyle = '';
+                // pola contoh: jika quantum + people, jadi putih & merah (seperti deskripsi)
+                const pattern = activeCubes.sort().join(',');
+
                 if (pattern === 'people,quantum') {
-                    // dua kiri atas → putih & merah (tapi merah earthy)
-                    bgStyle = 'linear-gradient(145deg, #f7e2c0, #dbb48b)';
+                    bgColor = '#8b3a3a';  // merah gelap (tetap dalam tone gelap)
                 } else if (pattern === 'center') {
-                    bgStyle = 'radial-gradient(circle at 30% 40%, #eddabf, #c6af8b)';
+                    bgColor = '#3b5e5e';  // sedikit lebih terang
                 } else if (pattern === 'mini,xilonen') {
-                    bgStyle = 'linear-gradient(45deg, #cdb28c, #a58d67)';
+                    bgColor = '#4f5f3a';  // olive gelap
                 } else if (pattern === 'people,quantum,center') {
-                    bgStyle = 'linear-gradient(90deg, #e5cfaa, #bb9f7a, #9c8462)';
-                } else if (activeNames.length >= 4) {
-                    bgStyle = 'radial-gradient(circle at 70% 20%, #dac29c, #b3956c)';
-                } else if (activeNames.length === 0) {
-                    bgStyle = '#e8dccc'; // kembali ke default
-                } else {
-                    bgStyle = '#dfd0b4'; // warna netral
+                    bgColor = '#6f4f4f';  // merah kecoklatan
+                } else if (activeCubes.length >= 4) {
+                    bgColor = '#3a5f5f';  // teal gelap
                 }
 
-                // tambahkan tekstur halus
-                page.style.background = bgStyle;
-                page.style.backgroundImage = ` radial-gradient(circle at 30% 40%, rgba(160, 130, 80, 0.1) 0%, transparent 30%), 
-                radial-gradient(circle at 80% 70%, rgba(110, 70, 30, 0.08) 0%, transparent 40%), 
-                repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 2px, transparent 2px, transparent 12px)`;
+                // ubah background body (hanya warna solid, tanpa gradien, agar 100% seperti template)
+                page.style.backgroundColor = bgColor;
+                page.style.transition = 'background-color 0.3s';
 
-                // efek sementara pada button
-                craftBtn.style.transform = 'scale(0.97)';
-                setTimeout(() => craftBtn.style.transform = '', 150);
+                // efek klik di button
+                craftBtn.style.transform = 'scale(0.95)';
+                setTimeout(() => craftBtn.style.transform = '', 120);
+
+                // sedikit interaksi: garis line berubah warna tipis
+                const line = document.querySelector('.base-line');
+                line.style.backgroundColor = '#c0c0c0';
+                setTimeout(() => line.style.backgroundColor = '#6b6b6b', 200);
             });
 
-            // biarkan cube center aktif dari awal (sesuai template)
-            // tidak perlu perubahan
+            // Center cube sudah active dari awal, pastikan class 'active' juga ada agar terbaca
+            const center = document.getElementById('centerCube');
+            if (center) {
+                center.classList.add('active'); // memastikan class active (karena sudah ada center-active)
+                // synchronize data-name
+                center.dataset.name = 'center';
+            }
+
+            // Tambahkan class active ke semua cube yang punya center-active (hanya center)
         })();
     </script>
 </body>
