@@ -12,36 +12,32 @@
         }
 
         body {
-            background: #000; /* hitam pekat */
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
+            background-color: #000000;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 1300px;
-            width: 100%;
-            padding: 0 40px;
+            max-width: 1280px;
             margin: 0 auto;
+            padding: 0 32px;
         }
 
-        /* ===== HEADER / NAVBAR ===== */
+        /* ===== NAVIGATION ===== */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 24px 0 40px 0;
-            border-bottom: 1px solid #222;
+            padding: 28px 0 32px 0;
+            border-bottom: 1px solid #222222;
         }
 
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 12px;
         }
 
         .vercel-logo {
@@ -53,23 +49,20 @@
         .vercel-logo svg {
             width: 24px;
             height: 24px;
-            fill: none;
-            stroke: #fff;
+            fill: white;
         }
 
         .vercel-logo span {
             font-size: 15px;
-            color: #888;
-            letter-spacing: -0.01em;
+            color: #888888;
         }
 
         .vercel-logo .by {
-            color: #555;
-            margin-right: 4px;
+            color: #666666;
         }
 
         .vercel-logo .vercel {
-            color: #fff;
+            color: #ffffff;
             font-weight: 500;
         }
 
@@ -79,208 +72,264 @@
         }
 
         .nav-links a {
-            color: #888;
+            color: #888888;
             text-decoration: none;
             font-size: 15px;
             transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: #fff;
+            color: #ffffff;
         }
 
         /* ===== MAIN CONTENT ===== */
         .main {
-            padding: 60px 0 100px 0;
+            padding: 60px 0 40px 0;
+        }
+
+        /* Hero section */
+        .hero {
+            margin-bottom: 40px;
         }
 
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: 4rem;
             font-weight: 600;
             letter-spacing: -0.02em;
-            line-height: 1.1;
-            margin-bottom: 20px;
+            line-height: 1.2;
+            margin-bottom: 24px;
         }
 
-        .hero h1 .get-started {
-            color: #fff;
+        .hero .get-started {
+            color: #ffffff;
         }
 
-        .hero h1 .code {
-            background: #1a1a1a;
-            padding: 0 12px;
-            border-radius: 60px;
-            font-family: 'SF Mono', 'Menlo', monospace;
-            font-size: 3.8rem;
-            font-weight: 500;
-            color: #fff;
-            border: 1px solid #333;
+        .hero .code-block {
             display: inline-block;
+            background-color: #1a1a1a;
+            padding: 4px 16px;
+            border-radius: 100px;
+            font-family: 'SF Mono', 'Menlo', 'Monaco', 'Cascadia Code', 'Consolas', monospace;
+            font-size: 3.5rem;
+            font-weight: 500;
+            color: #ffffff;
+            border: 1px solid #333333;
             margin-left: 8px;
+            line-height: 1.4;
         }
 
-        .hero .by-vercel {
+        .by-vercel {
             font-size: 1.2rem;
-            color: #666;
-            margin-top: 10px;
-            border-top: 1px solid #222;
-            padding-top: 25px;
+            color: #666666;
+            padding-top: 24px;
+            border-top: 1px solid #222222;
             max-width: 400px;
         }
 
-        /* ===== NEXT.JS BIG LOGO ===== */
+        /* NEXT.js big logo */
         .next-logo {
-            margin: 50px 0 60px 0;
+            margin: 70px 0 60px 0;
         }
 
-        .next-logo svg {
-            width: 200px;
-            height: auto;
-            filter: invert(1);
-        }
-
-        /* fallback text if svg not supported */
         .next-logo .next-text {
-            font-size: 6rem;
+            font-size: 7rem;
             font-weight: 700;
-            color: #fff;
-            letter-spacing: -2px;
+            color: #ffffff;
+            letter-spacing: -4px;
+            line-height: 1;
         }
 
-        /* ===== CARD GRID (Docs, Learn, Templates, Deploy) ===== */
-        .grid {
+        /* ===== CARDS GRID ===== */
+        .cards-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            margin: 60px 0 70px 0;
+            gap: 24px;
+            margin: 60px 0 80px 0;
         }
 
         .card {
-            background: #0a0a0a;
-            border: 1px solid #222;
+            background-color: #0a0a0a;
+            border: 1px solid #222222;
             border-radius: 16px;
             padding: 28px 24px;
-            transition: background 0.2s, border-color 0.2s;
+            transition: all 0.2s ease;
             cursor: default;
         }
 
         .card:hover {
-            background: #111;
-            border-color: #444;
+            background-color: #111111;
+            border-color: #444444;
+            transform: translateY(-2px);
         }
 
         .card h3 {
             font-size: 1.8rem;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             letter-spacing: -0.02em;
+            color: #ffffff;
         }
 
         .card p {
-            color: #888;
-            font-size: 1.1rem;
-            line-height: 1.5;
-            margin-bottom: 25px;
+            color: #888888;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
         }
 
         .card .arrow {
-            color: #fff;
+            color: #ffffff;
             font-size: 1.8rem;
             font-weight: 300;
-            opacity: 0.6;
+            opacity: 0.5;
+            transition: opacity 0.2s;
         }
 
-        /* ===== DESKRIPSI PANJANG (Find in-depth information ...) ===== */
-        .description-grid {
+        .card:hover .arrow {
+            opacity: 1;
+        }
+
+        /* ===== DESCRIPTION LINES (4 baris) ===== */
+        .description-lines {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 40px 60px;
-            margin-top: 60px;
-            border-top: 1px solid #222;
-            padding-top: 50px;
+            gap: 24px 48px;
+            margin: 60px 0 50px 0;
+            padding-top: 20px;
+            border-top: 1px solid #222222;
         }
 
-        .desc-item {
-            color: #aaa;
+        .desc-line {
+            color: #aaaaaa;
             font-size: 1.1rem;
             line-height: 1.6;
-            max-width: 450px;
         }
 
-        .desc-item strong, .desc-item b {
-            color: #fff;
+        .desc-line strong {
+            color: #ffffff;
             font-weight: 500;
         }
 
-        /* ===== FOOTER / BY VERCEL ===== */
-        .footer-note {
-            margin-top: 80px;
-            padding: 30px 0;
-            border-top: 1px solid #222;
+        /* ===== FOOTER ===== */
+        .footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #555;
+            padding: 32px 0 48px 0;
+            border-top: 1px solid #222222;
+            color: #666666;
             font-size: 0.95rem;
         }
 
         .footer-links {
             display: flex;
-            gap: 30px;
+            gap: 32px;
         }
 
         .footer-links a {
-            color: #666;
+            color: #888888;
             text-decoration: none;
+            transition: color 0.2s;
         }
 
         .footer-links a:hover {
-            color: #fff;
+            color: #ffffff;
         }
 
-        /* ===== UTILITY ===== */
-        .text-gray {
-            color: #666;
+        .copyright {
+            color: #555555;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 1000px) {
-            .grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
             .hero h1 {
                 font-size: 3.5rem;
             }
-            .hero h1 .code {
+            .hero .code-block {
                 font-size: 3rem;
+            }
+            .next-logo .next-text {
+                font-size: 6rem;
             }
         }
 
-        @media (max-width: 700px) {
-            .navbar {
-                flex-direction: column;
-                align-items: start;
+        @media (max-width: 900px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
             }
-            .grid {
+            
+            .description-lines {
                 grid-template-columns: 1fr;
+                gap: 16px;
             }
-            .description-grid {
-                grid-template-columns: 1fr;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
             }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+            
             .hero h1 {
                 font-size: 2.8rem;
             }
+            
+            .hero .code-block {
+                font-size: 2.2rem;
+                padding: 4px 12px;
+                margin-left: 0;
+                margin-top: 8px;
+            }
+            
+            .next-logo .next-text {
+                font-size: 4.5rem;
+            }
+            
+            .footer {
+                flex-direction: column;
+                gap: 20px;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .next-logo .next-text {
+                font-size: 3.5rem;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+        }
+
+        /* Utility */
+        .text-gray {
+            color: #888888;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- navbar -->
+        <!-- Navigation -->
         <nav class="navbar">
             <div class="logo-area">
                 <div class="vercel-logo">
-                    <!-- simple Vercel triangle logo -->
+                    <!-- Vercel triangle logo -->
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 2L2 20H22L12 2Z" fill="white" />
                     </svg>
@@ -297,26 +346,26 @@
             </div>
         </nav>
 
-        <!-- main hero -->
+        <!-- Main Content -->
         <main class="main">
+            <!-- Hero Section -->
             <div class="hero">
                 <h1>
                     <span class="get-started">Get started by editing</span>
-                    <span class="code">app/page.tsx</span>
+                    <span class="code-block">app/page.tsx</span>
                 </h1>
                 <div class="by-vercel">
                     by Vercel
                 </div>
             </div>
 
-            <!-- NEXT.js big text (like logo) -->
+            <!-- NEXT.js Large Logo -->
             <div class="next-logo">
                 <div class="next-text">NEXT.js</div>
-                <!-- fallback, jika ingin pakai SVG asli next, bisa pakai yang di bawah tapi cukup dengan teks lebih mirip gambar -->
             </div>
 
-            <!-- 4 cards: Docs, Learn, Templates, Deploy -->
-            <div class="grid">
+            <!-- 4 Cards -->
+            <div class="cards-grid">
                 <div class="card">
                     <h3>Docs →</h3>
                     <p>Find in-depth information about Next.js features and API.</p>
@@ -339,26 +388,26 @@
                 </div>
             </div>
 
-            <!-- deskripsi panjang (4 baris) -->
-            <div class="description-grid">
-                <div class="desc-item">
+            <!-- 4 Description Lines (pengulangan) -->
+            <div class="description-lines">
+                <div class="desc-line">
                     <strong>Find in-depth information about Next.js features and API.</strong>
                 </div>
-                <div class="desc-item">
+                <div class="desc-line">
                     <strong>Learn about Next.js in an interactive course with quizzes!</strong>
                 </div>
-                <div class="desc-item">
+                <div class="desc-line">
                     <strong>Explore the Next.js 13 playground.</strong>
                 </div>
-                <div class="desc-item">
+                <div class="desc-line">
                     <strong>Instantly deploy your Next.js site to a shareable URL with Vercel.</strong>
                 </div>
             </div>
 
-            <!-- footer -->
-            <div class="footer-note">
+            <!-- Footer -->
+            <footer class="footer">
                 <div class="copyright">
-                    © 2026 Vercel, Inc. (clone for template)
+                    © 2026 Vercel, Inc. (educational clone)
                 </div>
                 <div class="footer-links">
                     <a href="#">Docs</a>
@@ -366,10 +415,8 @@
                     <a href="#">Templates</a>
                     <a href="#">Deploy</a>
                 </div>
-            </div>
+            </footer>
         </main>
     </div>
-
-    <!-- sedikit sentuhan agar link terlihat seperti asli (tidak ada fungsi) -->
 </body>
 </html>
